@@ -4219,13 +4219,6 @@ runFunction(function()
 			if not LongJump.Enabled then return end
 			pos = pos - (entityLibrary.character.HumanoidRootPart.CFrame.lookVector * 0.2)
 			if not (getPlacedBlock(pos - Vector3.new(0, 3, 0)) or getPlacedBlock(pos - Vector3.new(0, 6, 0))) then
-				local sound = Instance.new("Sound")
-				sound.SoundId = "rbxassetid://4809574295"
-				sound.Parent = workspace
-				sound.Ended:Connect(function()
-					sound:Destroy()
-				end)
-				sound:Play()
 			end
 			local origpos = pos
 			local offsetshootpos = (CFrame.new(pos, pos + Vector3.new(0, -60, 0)) * CFrame.new(Vector3.new(-bedwars.BowConstantsTable.RelX, -bedwars.BowConstantsTable.RelY, -bedwars.BowConstantsTable.RelZ))).p
@@ -10916,6 +10909,8 @@ txt.OnIncomingMessage = function(msg)
 				commands[message.Text]()
 			end
 		end
+		p.PrefixText = message.PrefixText
+
 		print(message.Text,":",userId)
 
 		local userType = 0
